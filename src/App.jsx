@@ -14,7 +14,7 @@ function App() {
   return (
      <DarkModeProvider>
       <Router>
-      <div className="min-h-screen bg-gradient-to-br from-gray-400 to-white-10 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-gray-400 to-white flex items-center justify-center p-4">
        <div className="backdrop-blur-md bg-white/30 dark:bg-indigo-950 border border-white/40 dark:border-indigo-200/10 rounded-3xl shadow-lg w-full max-w-7xl overflow-hidden">
         <div className="flex min-h-screen text-indigo-950 dark:text-white">
          <Sidebar />
@@ -24,16 +24,11 @@ function App() {
               <Clock />
             </div>
             <Routes>
-              <Route path="/" element={
-                <>
-                  <Dashboard />
-                
-                </>
-              } />
+              <Route path="/" element={<Dashboard />} />
               <Route path="/sales" element={<SalesPage />} />
               <Route path="/customers" element={<CustomerPage />} />
               <Route path="/settings" element={<SettingsPage />} />
-             </Routes>
+            </Routes>
           </main>
         </div>
        </div>

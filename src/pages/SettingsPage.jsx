@@ -11,7 +11,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="p-6 max-w-3xl mx-auto text-gray-900 bg-gray-300 dark:bg-gray-800 dark:text-white ">
+    <div className="p-6 max-w-3xl mx-auto text-gray-900 bg-gray-300 dark:bg-gray-800 dark:text-white border rounded-2xl border-gray-600 dark:border-gray-700">
       <h2 className="text-2xl font-bold mb-6">Einstellungen</h2>
 
       {/* Dark/Light Mode */}

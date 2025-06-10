@@ -1,24 +1,34 @@
 export async function fetchDashboardData() {
-  const [productsRes, usersRes, cartsRes] = await Promise.all([
-    fetch('https://dummyjson.com/products'),
-    fetch('https://dummyjson.com/users'),
-    fetch('https://dummyjson.com/carts'),
-  ]);
+  try {
+    const [productsRes, usersRes, cartsRes] = await Promise.all([
+      fetch('https://dummyjson.com/products'),
+      fetch('https://dummyjson.com/users'),
+      fetch('https://dummyjson.com/carts'),
+    ]);
 
-  const [products, users, carts] = await Promise.all([
-    productsRes.json(),
-    usersRes.json(),
-    cartsRes.json(),
-  ]);
+    if (!productsRes.ok || !usersRes.ok || !cartsRes.ok) {
+      throw new Error('Failed to fetch data from one or more endpoints.');
+    }
 
-  const totalSales = carts.carts.reduce((sum, cart) => sum + cart.total, 0);
+    const [products, users, carts] = await Promise.all([
+      productsRes.json(),
+      usersRes.json(),
+      cartsRes.json(),
+    ]);
 
-  return {
-    products: products.total,
-    customers: users.total,
-    orders: carts.total,
-    sales: totalSales,
-    carts: carts.carts,  // falls du die Daten noch detaillierter brauchst
-    users: users.users,  // z.B. für Kundenliste
-  };
+    const totalSales = carts.carts.reduce((sum, cart) => sum + cart.total, 0);
+
+    return {
+      products: products.total,
+      customers: users.total,
+      orders: carts.total,
+      sales: totalSales,
+      carts: carts.carts,
+      users: users.users,
+    };
+  } catch (error) {
+    console.error("Error fetching dashboard data:", error);
+    // Re-throw the error or return a default state
+    throw error; // Or return a structure indicating error
+  }
 }
