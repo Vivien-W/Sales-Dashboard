@@ -1,12 +1,81 @@
-# React + Vite
+Dokumentation 📊 React Sales Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ein professionelles Dashboard-Projekt mit **React**, **Vite**, **Tailwind CSS** und **Recharts** zur Visualisierung von KPIs, Charts und Verkaufsdaten.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Dunkles Design (dunkelblau + blau)
+- KPI-Boxen mit Icons
+- Interaktive Diagramme (Line, Bar, Pie)
+- Komponentenbasiertes Layout
+- Erweiterbar mit echten API-Daten
 
-## Expanding the ESLint configuration
+Voraussetzungen
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js 
+- NPM oder Yarn
+
+Installation
+
+```bash
+# Projekt anlegen
+npm create vite@latest react-dashboard -- --template react
+
+cd react-dashboard
+
+# Abhängigkeiten installieren
+npm install
+
+# Tailwind CSS installieren
+npm install tailwindcss @tailwindcss/vite
+(Installationsanweisung: https://tailwindcss.com/docs/installation/using-vite)
+
+# TailwindCSS konfigurieren (vite.config.js)
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(), 
+  ],
+})
+
+# Recharts & Icons
+npm install recharts react-icons
+
+
+
+
+
+
+Projektstruktur
+
+src/
+├── App.jsx
+├── main.jsx
+├── index.css
+├── assets/
+      ├──profil-image.png
+├── context/
+      ├──DarkModeContext.jsx
+├── pages/
+      ├──CustomerPage.jsx
+      ├──SalesPage.jsx
+      ├──SettingsPage.jsx
+├── services/
+      ├──api.js
+├── components/
+      ├── charts/
+          ├──SalesChart.jsx
+          ├──UmsatzChart.jsx
+          ├──UmsatzentwicklungChart.jsx
+          ├──VertriebskanäleChart.jsx
+      ├── dashboard/
+          ├──Dashboard.jsx
+          ├──KPIBox.jsx
+      ├── layout/
+          ├──Sidebar.jsx
+
