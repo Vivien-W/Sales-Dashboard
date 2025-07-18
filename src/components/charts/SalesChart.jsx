@@ -16,7 +16,7 @@ export default function SalesChart() {
   return (
       <div className="bg-cyan-200 p-4 rounded-2xl shadow-md">
         <h2 className="text-lg text-red-500 mb-2">Bestellungen pro Kategorie</h2>
-        <ResponsiveContainer width="100%" height={200}>
+        <ResponsiveContainer width="100%" height={250}>
           <BarChart data={barData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />

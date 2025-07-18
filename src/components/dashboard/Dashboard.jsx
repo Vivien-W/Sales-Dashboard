@@ -30,19 +30,19 @@ export default function Dashboard() {
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white dark:bg-indigo-900 p-4 rounded-2xl shadow">
+        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl shadow">
           <h2 className="text-xl font-semibold mb-2">Umsatz (Demo)</h2>
           <UmsatzChart />
         </div>
-        <div className="bg-white dark:bg-indigo-900 p-4 rounded-2xl shadow">
+        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl shadow">
           <h2 className="text-xl font-semibold mb-2">Umsatzentwicklung (Demo)</h2>
           <UmsatzentwicklungChart />
         </div>
-        <div className="bg-white dark:bg-indigo-900 p-4 rounded-2xl shadow">
+        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl shadow">
           <h2 className="text-xl font-semibold mb-2">Sales nach Kategorien</h2>
           <SalesChart />
         </div>
-        <div className="bg-white dark:bg-indigo-900 p-4 rounded-2xl shadow">
+        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl shadow">
           <h2 className="text-xl font-semibold mb-2">Sales nach Vertriebskanälen</h2>
           <VertriebskanäleChart />
         </div>

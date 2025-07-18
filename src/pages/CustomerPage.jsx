@@ -17,7 +17,7 @@ export default function CustomersPage() {
         {customers.map(({ id, firstName, lastName, email }) => (
           <li key={id} className="p-3 rounded-lg">
             <p className="font-semibold">{firstName} {lastName}</p>
-            <p className="text-sm text-indigo-400">{email}</p>
+            <p className="text-sm text-gray-100">{email}</p>
           </li>
         ))}
       </ul>

@@ -13,7 +13,7 @@ const navItems = [
 
 export default function Sidebar() {
   return (
-    <aside className="bg-gray-500 text-white w-64 p-6 hidden md:block">
+    <aside className="bg-gray-500 text-white dark:bg-gray-800 w-64 p-6 hidden md:block border-r-2 border-white">
       <img
           src={ProfileImage}
           alt="Profilbild"
