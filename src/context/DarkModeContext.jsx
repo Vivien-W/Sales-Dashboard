@@ -1,4 +1,3 @@
-// DarkModeContext.jsx
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const DarkModeContext = createContext();
@@ -8,7 +7,7 @@ export function DarkModeProvider({ children }) {
     return localStorage.getItem('theme') === 'dark';
   });
 
-  // 🟡 WICHTIG: Theme-Klasse und localStorage setzen
+  // WICHTIG: Theme-Klasse und localStorage setzen
   useEffect(() => {
     const root = window.document.documentElement;
     if (darkMode) {

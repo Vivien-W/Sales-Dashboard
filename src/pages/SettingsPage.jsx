@@ -50,7 +50,7 @@ export default function SettingsPage() {
             <label className="block mb-1 font-medium">Name</label>
             <input
               type="text"
-              className="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:border-gray-600"
+              className="w-full p-2 rounded border border-gray-400 dark:bg-gray-800 dark:border-gray-600"
               placeholder="Max Mustermann"
             />
           </div>
@@ -58,7 +58,7 @@ export default function SettingsPage() {
             <label className="block mb-1 font-medium">E-Mail</label>
             <input
               type="email"
-              className="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:border-gray-600"
+              className="w-full p-2 rounded border border-gray-400 dark:bg-gray-800 dark:border-gray-600"
               placeholder="max@example.com"
             />
           </div>
@@ -66,7 +66,7 @@ export default function SettingsPage() {
             <label className="block mb-1 font-medium">Altes Passwort</label>
             <input
               type="password"
-              className="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:border-gray-600"
+              className="w-full p-2 rounded border border-gray-400 dark:bg-gray-800 dark:border-gray-600"
               placeholder="********"
             />
           </div>
@@ -74,13 +74,13 @@ export default function SettingsPage() {
             <label className="block mb-1 font-medium">Neues Passwort</label>
             <input
               type="password"
-              className="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:border-gray-600"
+              className="w-full p-2 rounded border border-gray-400 dark:bg-gray-800 dark:border-gray-600"
               placeholder="********"
             />
           </div>
           <button
             type="submit"
-            className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
+            className="bg-gray-500 rounded border border-gray-800 text-white px-4 py-2 hover:bg-gray-600 transition"
           >
             Speichern
           </button>

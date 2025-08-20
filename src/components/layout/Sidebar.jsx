@@ -1,5 +1,3 @@
-
-
 import { Home, BarChart, Settings, Users } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import ProfileImage from "../../assets/profile-image.png";

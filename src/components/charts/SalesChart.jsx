@@ -21,8 +21,8 @@ export default function SalesChart() {
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />
-            <Tooltip />
-            <Bar dataKey="orders" fill="#3b82f6" />
+            <Tooltip cursor={false} />  {/* auf false setzen, sonst erscheint ein hellgrauer Hintergrundbalken */}
+            <Bar dataKey="orders" fill="#3b82f6" isAnimationActive={false} activeBar={false} />
           </BarChart>
         </ResponsiveContainer>
       </div>

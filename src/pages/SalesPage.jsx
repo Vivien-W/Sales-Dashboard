@@ -23,7 +23,7 @@ export default function SalesPage() {
         </thead>
         <tbody>
           {orders.map(({ id, userId, total }) => (
-            <tr key={id} className="border-b border-gray-700 hover:bg-indigo-800">
+            <tr key={id} className="border-b border-gray-700 hover:bg-gray-400">
               <td className="py-2">{id}</td>
               <td className="py-2">{userId}</td>
               <td className="py-2">${total}</td>
