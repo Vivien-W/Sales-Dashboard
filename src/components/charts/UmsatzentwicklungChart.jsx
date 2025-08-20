@@ -18,7 +18,7 @@ export default function UmsatzentwicklungChart() {
   ];
 
   return (
-    <div className="bg-cyan-200 p-4 rounded-2xl shadow-md">
+    <div className="bg-cyan-200 dark:bg-cyan-100 p-4 rounded-2xl shadow-md">
       <h2 className="text-lg text-red-500 mb-2">Umsatzentwicklung</h2>
       <ResponsiveContainer width="100%" height={200}>
         <LineChart data={lineData}>
