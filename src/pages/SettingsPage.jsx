@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useDarkMode } from '../context/DarkModeContext';
+import { useState } from "react";
+import { useDarkMode } from "../context/DarkModeContext";
 
 export default function SettingsPage() {
   const { darkMode, setDarkMode } = useDarkMode(); // globaler Zustand
@@ -7,7 +7,7 @@ export default function SettingsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Änderungen gespeichert!');
+    alert("Änderungen gespeichert!");
   };
 
   return (

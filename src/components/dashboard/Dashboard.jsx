@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import KPIBox from './KPIBox.jsx';
-import UmsatzChart from '../charts/UmsatzChart.jsx';
-import UmsatzentwicklungChart from '../charts/UmsatzentwicklungChart.jsx';
-import SalesChart from '../charts/SalesChart.jsx';
-import VertriebskanäleChart from '../charts/VertriebskanäleChart.jsx';
-import { fetchDashboardData } from '../../services/api.js';
+import { useEffect, useState } from "react";
+import KPIBox from "./KPIBox.jsx";
+import UmsatzChart from "../charts/UmsatzChart.jsx";
+import UmsatzentwicklungChart from "../charts/UmsatzentwicklungChart.jsx";
+import SalesChart from "../charts/SalesChart.jsx";
+import VertriebskanäleChart from "../charts/VertriebskanäleChart.jsx";
+import { fetchDashboardData } from "../../services/api.js";
 
 export default function Dashboard() {
   const [data, setData] = useState({
@@ -35,7 +35,9 @@ export default function Dashboard() {
           <UmsatzChart />
         </div>
         <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl shadow">
-          <h2 className="text-xl font-semibold mb-2">Umsatzentwicklung (Demo)</h2>
+          <h2 className="text-xl font-semibold mb-2">
+            Umsatzentwicklung (Demo)
+          </h2>
           <UmsatzentwicklungChart />
         </div>
         <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl shadow">
@@ -43,7 +45,9 @@ export default function Dashboard() {
           <SalesChart />
         </div>
         <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl shadow">
-          <h2 className="text-xl font-semibold mb-2">Sales nach Vertriebskanälen</h2>
+          <h2 className="text-xl font-semibold mb-2">
+            Sales nach Vertriebskanälen
+          </h2>
           <VertriebskanäleChart />
         </div>
       </div>

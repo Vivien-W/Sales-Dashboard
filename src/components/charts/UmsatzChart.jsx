@@ -6,15 +6,15 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-} from 'recharts';
+} from "recharts";
 
 export default function UmsatzChart() {
   const lineData = [
-    { name: 'Jan', sales: 4000 },
-    { name: 'Feb', sales: 3000 },
-    { name: 'Mrz', sales: 2000 },
-    { name: 'Apr', sales: 2780 },
-    { name: 'Mai', sales: 1890 },
+    { name: "Jan", sales: 4000 },
+    { name: "Feb", sales: 3000 },
+    { name: "Mrz", sales: 2000 },
+    { name: "Apr", sales: 2780 },
+    { name: "Mai", sales: 1890 },
   ];
 
   return (

@@ -6,15 +6,15 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-} from 'recharts';
+} from "recharts";
 
 export default function UmsatzentwicklungChart() {
   const lineData = [
-    { name: '2021', sales: 40000 },
-    { name: '2022', sales: 33200 },
-    { name: '2023', sales: 29000 },
-    { name: '2024', sales: 45080 },
-    { name: '2025', sales: 18900 },
+    { name: "2021", sales: 40000 },
+    { name: "2022", sales: 33200 },
+    { name: "2023", sales: 29000 },
+    { name: "2024", sales: 45080 },
+    { name: "2025", sales: 18900 },
   ];
 
   return (

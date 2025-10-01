@@ -1,13 +1,13 @@
 export async function fetchDashboardData() {
   try {
     const [productsRes, usersRes, cartsRes] = await Promise.all([
-      fetch('https://dummyjson.com/products'),
-      fetch('https://dummyjson.com/users'),
-      fetch('https://dummyjson.com/carts'),
+      fetch("https://dummyjson.com/products"),
+      fetch("https://dummyjson.com/users"),
+      fetch("https://dummyjson.com/carts"),
     ]);
 
     if (!productsRes.ok || !usersRes.ok || !cartsRes.ok) {
-      throw new Error('Failed to fetch data from one or more endpoints.');
+      throw new Error("Failed to fetch data from one or more endpoints.");
     }
 
     const [products, users, carts] = await Promise.all([

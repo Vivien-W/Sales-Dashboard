@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { fetchDashboardData } from '../services/api.js';
+import { useEffect, useState } from "react";
+import { fetchDashboardData } from "../services/api.js";
 
 export default function SalesPage() {
   const [orders, setOrders] = useState([]);
