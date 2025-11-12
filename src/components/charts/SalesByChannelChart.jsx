@@ -92,11 +92,15 @@ export default function VertriebskanäleChart() {
 
           <Tooltip
             contentStyle={{
-              backgroundColor: isDark ? "#1f2937" : "#f9fafb", // gray-800 / gray-50
+              backgroundColor: isDark ? "#1f2937" : "#f9fafb",
               border: "none",
               borderRadius: "0.75rem",
-              color: isDark ? "#f3f4f6" : "#111827",
               boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            }}
+            itemStyle={{
+              color: isDark ? "#f9fafb" : "#1f2937",
+              fontWeight: 500,
+              fontSize: 14,
             }}
           />
           <Legend

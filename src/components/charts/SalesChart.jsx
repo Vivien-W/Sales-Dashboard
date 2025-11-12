@@ -10,10 +10,10 @@ import {
 import { useEffect, useState } from "react";
 
 const barData = [
-  { name: "Produkt A", orders: 400 },
-  { name: "Produkt B", orders: 300 },
-  { name: "Produkt C", orders: 300 },
-  { name: "Produkt D", orders: 200 },
+  { name: "Kategorie A", orders: 400 },
+  { name: "Kategorie B", orders: 300 },
+  { name: "Katgorie C", orders: 300 },
+  { name: "Kategorie D", orders: 200 },
 ];
 
 export default function SalesChart() {
@@ -39,7 +39,7 @@ export default function SalesChart() {
       "
     >
       <h2 className="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">
-        Bestellungen pro Kategorie
+        Verkäufe pro Kategorie
       </h2>
       <ResponsiveContainer width="100%" height={250}>
         <BarChart data={barData}>

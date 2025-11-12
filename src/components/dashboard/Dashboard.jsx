@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import KPIBox from "./KPIBox.jsx";
-import UmsatzChart from "../charts/UmsatzChart.jsx";
-import UmsatzentwicklungChart from "../charts/UmsatzentwicklungChart.jsx";
+import UmsatzChart from "../charts/MonthlyRevenueChart.jsx";
+import UmsatzentwicklungChart from "../charts/RevenueTrendChart.jsx";
 import SalesChart from "../charts/SalesChart.jsx";
-import VertriebskanäleChart from "../charts/VertriebskanäleChart.jsx";
+import VertriebskanäleChart from "../charts/SalesByChannelChart.jsx";
 import { fetchDashboardData } from "../../services/api.js";
 
 export default function Dashboard() {
