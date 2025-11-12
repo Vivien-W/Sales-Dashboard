@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDarkMode } from "../context/DarkModeContext";
 
 export default function SettingsPage() {
-  const { darkMode, setDarkMode } = useDarkMode(); // globaler Zustand
+  const { darkMode, setDarkMode } = useDarkMode();
   const [emailNotifications, setEmailNotifications] = useState(true);
 
   const handleSubmit = (e) => {
@@ -11,32 +11,46 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="p-6 max-w-3xl mx-auto text-gray-900 bg-gray-300 dark:bg-gray-800 dark:text-white border rounded-2xl border-gray-600 dark:border-gray-700">
-      <h2 className="text-2xl font-bold mb-6">Einstellungen</h2>
+    <div
+      className="
+        max-w-3xl mx-auto p-8 
+        bg-white/60 dark:bg-gray-900/40 
+        backdrop-blur-md 
+        border border-gray-200/40 dark:border-gray-700/40 
+        rounded-3xl 
+        shadow-sm 
+        transition-all duration-500
+      "
+    >
+      <h2 className="text-3xl font-bold mb-8 tracking-tight">Einstellungen</h2>
 
-      {/* Dark/Light Mode */}
-      <section className="mb-8">
-        <h3 className="text-xl font-semibold mb-4">Darstellung</h3>
-        <label className="flex items-center space-x-3">
+      {/* Darstellung */}
+      <section className="mb-10">
+        <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+          Darstellung
+        </h3>
+        <label className="flex items-center space-x-3 cursor-pointer">
           <input
             type="checkbox"
             checked={darkMode}
             onChange={() => setDarkMode(!darkMode)}
-            className="form-checkbox h-5 w-5 text-indigo-600"
+            className="h-5 w-5 accent-blue-500"
           />
           <span>Dark Mode aktivieren</span>
         </label>
       </section>
 
       {/* Benachrichtigungen */}
-      <section className="mb-8">
-        <h3 className="text-xl font-semibold mb-4">Benachrichtigungen</h3>
-        <label className="flex items-center space-x-3">
+      <section className="mb-10">
+        <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+          Benachrichtigungen
+        </h3>
+        <label className="flex items-center space-x-3 cursor-pointer">
           <input
             type="checkbox"
             checked={emailNotifications}
             onChange={() => setEmailNotifications(!emailNotifications)}
-            className="form-checkbox h-5 w-5 text-indigo-600"
+            className="h-5 w-5 accent-blue-500"
           />
           <span>E-Mail Benachrichtigungen erhalten</span>
         </label>
@@ -44,45 +58,56 @@ export default function SettingsPage() {
 
       {/* Profil */}
       <section>
-        <h3 className="text-xl font-semibold mb-4">Profil</h3>
-        <form className="space-y-4 max-w-md" onSubmit={handleSubmit}>
-          <div>
-            <label className="block mb-1 font-medium">Name</label>
-            <input
-              type="text"
-              className="w-full p-2 rounded border border-gray-400 dark:bg-gray-800 dark:border-gray-600"
-              placeholder="Max Mustermann"
-            />
-          </div>
-          <div>
-            <label className="block mb-1 font-medium">E-Mail</label>
-            <input
-              type="email"
-              className="w-full p-2 rounded border border-gray-400 dark:bg-gray-800 dark:border-gray-600"
-              placeholder="max@example.com"
-            />
-          </div>
-          <div>
-            <label className="block mb-1 font-medium">Altes Passwort</label>
-            <input
-              type="password"
-              className="w-full p-2 rounded border border-gray-400 dark:bg-gray-800 dark:border-gray-600"
-              placeholder="********"
-            />
-          </div>
-          <div>
-            <label className="block mb-1 font-medium">Neues Passwort</label>
-            <input
-              type="password"
-              className="w-full p-2 rounded border border-gray-400 dark:bg-gray-800 dark:border-gray-600"
-              placeholder="********"
-            />
-          </div>
+        <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+          Profil
+        </h3>
+        <form className="space-y-5 max-w-md" onSubmit={handleSubmit}>
+          {[
+            { label: "Name", type: "text", placeholder: "Max Mustermann" },
+            { label: "E-Mail", type: "email", placeholder: "max@example.com" },
+            {
+              label: "Altes Passwort",
+              type: "password",
+              placeholder: "********",
+            },
+            {
+              label: "Neues Passwort",
+              type: "password",
+              placeholder: "********",
+            },
+          ].map((field, i) => (
+            <div key={i}>
+              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
+                {field.label}
+              </label>
+              <input
+                type={field.type}
+                placeholder={field.placeholder}
+                className="
+                  w-full p-2.5 rounded-xl
+                  bg-white/70 dark:bg-gray-800/60
+                  border border-gray-300/60 dark:border-gray-700
+                  focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500
+                  focus:outline-none
+                  transition-all duration-200
+                "
+              />
+            </div>
+          ))}
+
           <button
             type="submit"
-            className="bg-gray-500 rounded border border-gray-800 text-white px-4 py-2 hover:bg-gray-600 transition"
+            className="
+              mt-4 
+              px-5 py-2.5 
+              bg-blue-600 hover:bg-blue-700 
+              text-white font-medium 
+              rounded-xl 
+              shadow-sm hover:shadow-md 
+              transition-all duration-300
+            "
           >
-            Speichern
+            Änderungen speichern
           </button>
         </form>
       </section>

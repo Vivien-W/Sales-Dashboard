@@ -12,23 +12,51 @@ function App() {
   return (
     <DarkModeProvider>
       <Router>
-        <div className="min-h-screen bg-gradient-to-br from-gray-400 to-gray-100 dark:from-gray-950 dark:to-gray-900 flex items-center justify-center p-4">
-          <div className="backdrop-blur-md bg-white/30 dark:bg-gray-800 border border-white/40 dark:border-gray-200/10 rounded-3xl shadow-lg w-full max-w-7xl overflow-hidden">
-            <div className="flex min-h-screen text-gray-950 dark:text-white">
-              <Sidebar />
-              <main className="flex-1 p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h1 className="text-3xl font-bold">Sales Dashboard</h1>
-                  <Clock />
-                </div>
+        {/* Hintergrund */}
+        <div
+          className="
+            min-h-screen 
+            bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200
+            dark:from-[#0d1117] dark:via-[#111827] dark:to-[#1f2937]
+            text-gray-900 dark:text-gray-100
+            transition-colors duration-500
+          "
+        >
+          {/* Hauptcontainer */}
+          <div className="flex min-h-screen max-w-7xl mx-auto">
+            {/* Sidebar */}
+            <Sidebar />
+
+            {/* Main Content */}
+            <main
+              className="
+                flex-1 p-6 md:p-8 
+                space-y-8 
+                bg-white/60 dark:bg-gray-900/40 
+                backdrop-blur-md 
+                border-l border-gray-200/40 dark:border-gray-700/40
+                shadow-sm
+                transition-all duration-500
+              "
+            >
+              {/* Header mit Titel & Uhr */}
+              <div className="flex items-center justify-between">
+                <h1 className="text-3xl font-bold tracking-tight">
+                  Sales Dashboard
+                </h1>
+                <Clock />
+              </div>
+
+              {/* Seiteninhalte */}
+              <div className="pb-12">
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/sales" element={<SalesPage />} />
                   <Route path="/customers" element={<CustomerPage />} />
                   <Route path="/settings" element={<SettingsPage />} />
                 </Routes>
-              </main>
-            </div>
+              </div>
+            </main>
           </div>
         </div>
       </Router>

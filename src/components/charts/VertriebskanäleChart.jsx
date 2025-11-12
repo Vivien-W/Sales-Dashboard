@@ -6,6 +6,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { useEffect, useState } from "react";
 
 const pieData = [
   { name: "Direktverkauf", value: 400 },
@@ -14,7 +15,9 @@ const pieData = [
   { name: "Sonstige", value: 200 },
 ];
 
-const COLORS = ["#3b82f6", "#2563eb", "#1d4ed8", "#1e40af"];
+// Harmonische, leicht abgestufte Palette (hell im Lightmode, sanft leuchtend im Darkmode)
+const LIGHT_COLORS = ["#3b82f6", "#10b981", "#8b5cf6", "#f59e0b"]; // blue, green, violet, amber
+const DARK_COLORS = ["#60a5fa", "#34d399", "#a78bfa", "#fbbf24"]; // softer & brighter for dark bg
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -25,7 +28,7 @@ const renderCustomizedLabel = ({
   outerRadius,
   percent,
 }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.55;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
@@ -37,6 +40,7 @@ const renderCustomizedLabel = ({
       textAnchor="middle"
       dominantBaseline="central"
       fontSize={12}
+      className="drop-shadow"
     >
       {`${(percent * 100).toFixed(0)}%`}
     </text>
@@ -44,30 +48,67 @@ const renderCustomizedLabel = ({
 };
 
 export default function VertriebskanäleChart() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const dark = document.documentElement.classList.contains("dark");
+    setIsDark(dark);
+  }, []);
+
+  const colors = isDark ? DARK_COLORS : LIGHT_COLORS;
+
   return (
-    <div className="bg-cyan-200 dark:bg-cyan-100 p-4 rounded-2xl shadow-md">
-      <h2 className="text-lg text-red-500 mb-2">Vertriebskanäle</h2>
+    <div
+      className="
+        bg-white/60 dark:bg-gray-900/40 
+        backdrop-blur-md 
+        border border-gray-200/50 dark:border-gray-700/50 
+        p-5 rounded-2xl shadow-sm hover:shadow-md transition
+      "
+    >
+      <h2 className="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">
+        Vertriebskanäle
+      </h2>
+
       <ResponsiveContainer width="100%" height={250}>
         <PieChart>
           <Pie
             data={pieData}
             cx="50%"
             cy="50%"
-            outerRadius={80}
-            fill="#3b82f6"
+            outerRadius={85}
+            innerRadius={45}
             dataKey="value"
-            label={renderCustomizedLabel}
             labelLine={false}
+            label={renderCustomizedLabel}
           >
             {pieData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
+                fill={colors[index % colors.length]}
               />
             ))}
           </Pie>
-          <Tooltip />
-          <Legend />
+
+          <Tooltip
+            contentStyle={{
+              backgroundColor: isDark ? "#1f2937" : "#f9fafb", // gray-800 / gray-50
+              border: "none",
+              borderRadius: "0.75rem",
+              color: isDark ? "#f3f4f6" : "#111827",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            }}
+          />
+          <Legend
+            verticalAlign="bottom"
+            align="center"
+            iconType="circle"
+            wrapperStyle={{
+              color: isDark ? "#d1d5db" : "#374151",
+              fontSize: 13,
+              marginTop: 10,
+            }}
+          />
         </PieChart>
       </ResponsiveContainer>
     </div>
